@@ -28,48 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.getWeatherButton = new System.Windows.Forms.Button();
+            this.temperatureBox = new System.Windows.Forms.TextBox();
+            this.descriptionBox = new System.Windows.Forms.TextBox();
+            this.speedBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.getCityNameBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // getWeatherButton
             // 
-            this.button1.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(204, 218);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 33);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Узнать погоду!";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.getWeatherButton.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.getWeatherButton.Location = new System.Drawing.Point(204, 218);
+            this.getWeatherButton.Name = "getWeatherButton";
+            this.getWeatherButton.Size = new System.Drawing.Size(167, 33);
+            this.getWeatherButton.TabIndex = 0;
+            this.getWeatherButton.Text = "Узнать погоду!";
+            this.getWeatherButton.UseVisualStyleBackColor = true;
+            this.getWeatherButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // temperatureBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(362, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 23);
-            this.textBox1.TabIndex = 1;
+            this.temperatureBox.Location = new System.Drawing.Point(362, 50);
+            this.temperatureBox.Name = "temperatureBox";
+            this.temperatureBox.Size = new System.Drawing.Size(150, 23);
+            this.temperatureBox.TabIndex = 1;
             // 
-            // textBox2
+            // descriptionBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(363, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(149, 23);
-            this.textBox2.TabIndex = 2;
+            this.descriptionBox.Location = new System.Drawing.Point(363, 114);
+            this.descriptionBox.Name = "descriptionBox";
+            this.descriptionBox.Size = new System.Drawing.Size(149, 23);
+            this.descriptionBox.TabIndex = 2;
             // 
-            // textBox3
+            // speedBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(363, 183);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(149, 23);
-            this.textBox3.TabIndex = 3;
+            this.speedBox.Location = new System.Drawing.Point(363, 183);
+            this.speedBox.Name = "speedBox";
+            this.speedBox.Size = new System.Drawing.Size(149, 23);
+            this.speedBox.TabIndex = 3;
             // 
             // label1
             // 
@@ -111,27 +111,27 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Введите название города";
             // 
-            // textBox7
+            // getCityNameBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(29, 67);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(185, 23);
-            this.textBox7.TabIndex = 8;
+            this.getCityNameBox.Location = new System.Drawing.Point(29, 67);
+            this.getCityNameBox.Name = "getCityNameBox";
+            this.getCityNameBox.Size = new System.Drawing.Size(185, 23);
+            this.getCityNameBox.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 299);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.getCityNameBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.speedBox);
+            this.Controls.Add(this.descriptionBox);
+            this.Controls.Add(this.temperatureBox);
+            this.Controls.Add(this.getWeatherButton);
             this.Name = "Form1";
             this.Text = "Узнаватель погоды";
             this.ResumeLayout(false);
@@ -141,15 +141,15 @@
 
         #endregion
 
-        private Button button1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private Button getWeatherButton;
+        private TextBox temperatureBox;
+        private TextBox descriptionBox;
+        private TextBox speedBox;
         private Label label1;
         private Label label2;
         private Label label3;
         
         private Label label7;
-        private TextBox textBox7;
+        private TextBox getCityNameBox;
     }
 }

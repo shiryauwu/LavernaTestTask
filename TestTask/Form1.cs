@@ -67,12 +67,12 @@ namespace TestTask
         {
             string cityName;  
 
-            cityName = textBox7.Text;  // Ввод пользователем названия города
+            cityName = getCityNameBox.Text;  // Ввод пользователем названия города
 
-            textBox1.Text = GetTemperature(cityName); // Присваивание полю результата метода
-            textBox2.Text = GetWeatherDescription(cityName);  // Присваивание полю результата метода
-            textBox3.Text = GetWindSpeed(cityName);  // Присваивание полю результата метода
-            if (textBox1.Text == "")  //  Обработка ошибки 
+            temperatureBox.Text = GetTemperature(cityName); // Присваивание полю результата метода
+            descriptionBox.Text = GetWeatherDescription(cityName);  // Присваивание полю результата метода
+            speedBox.Text = GetWindSpeed(cityName);  // Присваивание полю результата метода
+            if (temperatureBox.Text == "")  //  Обработка ошибки 
             {
                 MessageBox.Show("Город не найден!");
             }
