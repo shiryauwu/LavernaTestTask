@@ -6,25 +6,25 @@ namespace TestTask
 {
     public partial class Form1 : Form
     {
-        string appId = "81d82e16b8085a7d65e60d6401116ec5";  //ключ API
-        string units = "metric";  //Данные для вывода температуры по цельсию
-        string lang = "ru";  // Язык вывода: русский
+        string appId = "81d82e16b8085a7d65e60d6401116ec5";  //РєР»СЋС‡ API
+        string units = "metric";  //Р”Р°РЅРЅС‹Рµ РґР»СЏ РІС‹РІРѕРґР° С‚РµРјРїРµСЂР°С‚СѓСЂС‹ РїРѕ С†РµР»СЊСЃРёСЋ
+        string lang = "ru";  // РЇР·С‹Рє РІС‹РІРѕРґР°: СЂСѓСЃСЃРєРёР№
         
-        HttpClient httpClient = new HttpClient();  //Создание HTTP клиента для дальнейшей работы с вебом
+        HttpClient httpClient = new HttpClient();  //РЎРѕР·РґР°РЅРёРµ HTTP РєР»РёРµРЅС‚Р° РґР»СЏ РґР°Р»СЊРЅРµР№С€РµР№ СЂР°Р±РѕС‚С‹ СЃ РІРµР±РѕРј
 
         public Form1()
         {
             InitializeComponent();
         }
-        public string GetTemperature(string cityName)  //Метод для вывода температуры
+        public string GetTemperature(string cityName)  //РњРµС‚РѕРґ РґР»СЏ РІС‹РІРѕРґР° С‚РµРјРїРµСЂР°С‚СѓСЂС‹
         {
-            string url = $"https://api.openweathermap.org/data/2.5/weather?q={cityName}&APPID={appId}&units={units}&lang={lang}";  //ссылка для доступа к API
+            string url = $"https://api.openweathermap.org/data/2.5/weather?q={cityName}&APPID={appId}&units={units}&lang={lang}";  //СЃСЃС‹Р»РєР° РґР»СЏ РґРѕСЃС‚СѓРїР° Рє API
             try
             {
-                var response = httpClient.GetStringAsync(url).Result;  // Присваивание переменной данных с API
-                var responseMain = JObject.Parse(response).GetValue("main").ToString();  //Десериализация JSON
+                var response = httpClient.GetStringAsync(url).Result;  // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ РґР°РЅРЅС‹С… СЃ API
+                var responseMain = JObject.Parse(response).GetValue("main").ToString();  //Р”РµСЃРµСЂРёР°Р»РёР·Р°С†РёСЏ JSON
                 var responseTemp = JObject.Parse(responseMain).GetValue("temp").ToString();
-                return $"{responseTemp} °C";  //Вывод результата
+                return $"{responseTemp} В°C";  //Р’С‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р°
             }
             catch (Exception ex)
             {
@@ -33,14 +33,14 @@ namespace TestTask
         }
         public string GetWeatherDescription(string cityName)
         {
-            string url = $"https://api.openweathermap.org/data/2.5/weather?q={cityName}&APPID={appId}&units={units}&lang={lang}";  //ссылка для доступа к API
+            string url = $"https://api.openweathermap.org/data/2.5/weather?q={cityName}&APPID={appId}&units={units}&lang={lang}";  //СЃСЃС‹Р»РєР° РґР»СЏ РґРѕСЃС‚СѓРїР° Рє API
             try
             {
-                var response = httpClient.GetStringAsync(url).Result;  // Присваивание переменной данных с API
-                var responseWeather = JObject.Parse(response).GetValue("weather");  //Десериализация JSON
+                var response = httpClient.GetStringAsync(url).Result;  // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ РґР°РЅРЅС‹С… СЃ API
+                var responseWeather = JObject.Parse(response).GetValue("weather"); //Р”РµСЃРµСЂРёР°Р»РёР·Р°С†РёСЏ JSON
                 var responseWeatherArray = responseWeather[0].ToString();
                 var responseDescription = JObject.Parse(responseWeatherArray).GetValue("description").ToString();
-                return responseDescription;  //Вывод результата
+                return responseDescription;  //Р’С‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р°
             }
             catch (Exception ex)
             {
@@ -49,13 +49,13 @@ namespace TestTask
         }
         public string GetWindSpeed(string cityName)
         {
-            string url = $"https://api.openweathermap.org/data/2.5/weather?q={cityName}&APPID={appId}&units={units}&lang={lang}";  //ссылка для доступа к API
+            string url = $"https://api.openweathermap.org/data/2.5/weather?q={cityName}&APPID={appId}&units={units}&lang={lang}";  //СЃСЃС‹Р»РєР° РґР»СЏ РґРѕСЃС‚СѓРїР° Рє API
             try
             {
-                var response = httpClient.GetStringAsync(url).Result;  // Присваивание переменной данных с API
-                var responseWind = JObject.Parse(response).GetValue("wind").ToString();  //Десериализация JSON
+                var response = httpClient.GetStringAsync(url).Result;  // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ РґР°РЅРЅС‹С… СЃ API
+                var responseWind = JObject.Parse(response).GetValue("wind").ToString();  //Р”РµСЃРµСЂРёР°Р»РёР·Р°С†РёСЏ JSON
                 var responseSpeed = JObject.Parse(responseWind).GetValue("speed").ToString();
-                return $"{responseSpeed} км/ч";  //Вывод результата
+                return $"{responseSpeed} РєРј/С‡";  //Р’С‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р°
             }
             catch (Exception ex)
             {
@@ -63,18 +63,18 @@ namespace TestTask
                 return "";
             }
         }
-        private void button1_Click(object sender, EventArgs e)  // Обработка события нажатия на кнопку
+        private void button1_Click(object sender, EventArgs e)  // РћР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РЅР° РєРЅРѕРїРєСѓ
         {
             string cityName;  
 
-            cityName = textBox7.Text;  // Ввод пользователем названия города
+            cityName = textBox7.Text;  // Р’РІРѕРґ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј РЅР°Р·РІР°РЅРёСЏ РіРѕСЂРѕРґР°
 
-            textBox1.Text = GetTemperature(cityName);  // Присваивание полю результата метода
-            textBox2.Text = GetWeatherDescription(cityName);  // Присваивание полю результата метода
-            textBox3.Text = GetWindSpeed(cityName);  // Присваивание полю результата метода
-            if (textBox1.Text == "")  //  Обработка ошибки 
+            textBox1.Text = GetTemperature(cityName); // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РїРѕР»СЋ СЂРµР·СѓР»СЊС‚Р°С‚Р° РјРµС‚РѕРґР°
+            textBox2.Text = GetWeatherDescription(cityName);  // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РїРѕР»СЋ СЂРµР·СѓР»СЊС‚Р°С‚Р° РјРµС‚РѕРґР°
+            textBox3.Text = GetWindSpeed(cityName);  // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РїРѕР»СЋ СЂРµР·СѓР»СЊС‚Р°С‚Р° РјРµС‚РѕРґР°
+            if (textBox1.Text == "")  //  РћР±СЂР°Р±РѕС‚РєР° РѕС€РёР±РєРё 
             {
-                MessageBox.Show("Город не найден!");
+                MessageBox.Show("Р“РѕСЂРѕРґ РЅРµ РЅР°Р№РґРµРЅ!");
             }
         }
 
